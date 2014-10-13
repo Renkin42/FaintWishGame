@@ -73,8 +73,9 @@ public class MapReader {
 				case '8': display.append("\u2533"); break; //top T-intersection
 				case '9': display.append("\u253B"); break; //bottom T-intersection
 				case 'a': display.append("\u254B"); break; //4-way intersection
-				case 'x': display.appendc("X", Color.RED); break;
-				case 'p': display.appendc("@", Color.BLUE); break;
+				case 'A': display.appendc("\u2620", Color.RED); break;
+				case 'x': display.appendc("\u2613", Color.YELLOW); break;
+				case 'p': display.appendc("\u265B", Color.BLUE); break;
 				case ' ': display.appendc("\u2593", Color.BLACK); break;
 				default: display.append(Character.toString(mapChars[map][i][j]));
 				}
