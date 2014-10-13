@@ -10,6 +10,10 @@ import net.renkin42.faintWish.gui.InternalDisplay;
 public class MapReader {
 	
 	public char[][][] mapChars;
+	private int[] playerInitialX;
+	private int[] playerInitialY;
+	private int[] androidInitialX;
+	private int[] androidInitialY;
 	
 	public MapReader(String mapName, int mapSize) {
 		this.mapChars = new char[mapSize][19][19];
@@ -25,6 +29,13 @@ public class MapReader {
 					
 					for (int k=0; k<19; k++) {
 						this.mapChars[i][j][k] = line[k];
+						if (line[k]=='p') {
+							playerInitialX[i] = j;
+							playerInitialY[i] = k;
+						} else if (line[k]=='A') {
+							androidInitialX[i] = j;
+							androidInitialY[i] = k;
+						}
 					}
 				}
 				
