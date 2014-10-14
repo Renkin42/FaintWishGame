@@ -2,6 +2,8 @@ package net.renkin42.faintWish.maps;
 
 import java.util.Random;
 
+import net.renkin42.faintWish.ai.Entity;
+import net.renkin42.faintWish.ai.MainSystem;
 import net.renkin42.faintWish.gui.InternalDisplay;
 
 public class Sector {
@@ -23,14 +25,15 @@ public class Sector {
 		this.scene = new Random().nextInt(this.scenes.mapChars.length);
 	}
 	
-	public void move(int direction, InternalDisplay display) throws InvalidMovementException {
+	public void move(int direction, InternalDisplay display, Entity entity) throws InvalidMovementException {
 		int arrayX = this.x * 2 + 1;
 		int arrayY = this.y * 2 + 1;
 		switch (direction) {
 		case 0:
 			if (maps.mapChars[this.map][arrayX][arrayY+1]==' ') {
 				maps.mapChars[this.map][arrayX][arrayY]=' ';
-				maps.mapChars[this.map][arrayX][arrayY+2]='p';
+				maps.mapChars[this.map][arrayX][arrayY+2]=entity.marker;
+				entity.sector = MainSystem.sector[this.x][this.y+1];
 			} else {
 				throw new InvalidMovementException(0);
 			}
@@ -38,7 +41,8 @@ public class Sector {
 		case 1:
 			if (maps.mapChars[this.map][arrayX+1][arrayY]==' ') {
 				maps.mapChars[this.map][arrayX][arrayY]=' ';
-				maps.mapChars[this.map][arrayX+2][arrayY]='p';
+				maps.mapChars[this.map][arrayX+2][arrayY]=entity.marker;
+				entity.sector = MainSystem.sector[this.x+1][this.y];
 			} else {
 				throw new InvalidMovementException(1);
 			}
@@ -46,7 +50,8 @@ public class Sector {
 		case 2:
 			if (maps.mapChars[this.map][arrayX][arrayY-1]==' ') {
 				maps.mapChars[this.map][arrayX][arrayY]=' ';
-				maps.mapChars[this.map][arrayX][arrayY-2]='p';
+				maps.mapChars[this.map][arrayX][arrayY-2]=entity.marker;
+				entity.sector = MainSystem.sector[this.x][this.y-1];
 			} else {
 				throw new InvalidMovementException(2);
 			}
@@ -54,7 +59,8 @@ public class Sector {
 		case 3:
 			if (maps.mapChars[this.map][arrayX-1][arrayY]==' ') {
 				maps.mapChars[this.map][arrayX][arrayY]=' ';
-				maps.mapChars[this.map][arrayX-2][arrayY]='p';
+				maps.mapChars[this.map][arrayX-2][arrayY]=entity.marker;
+				entity.sector = MainSystem.sector[this.x-1][this.y];
 			} else {
 				throw new InvalidMovementException(3);
 			}

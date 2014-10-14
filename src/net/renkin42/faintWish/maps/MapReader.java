@@ -5,8 +5,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import net.renkin42.faintWish.ai.Entity;
+import net.renkin42.faintWish.ai.MainSystem;
 import net.renkin42.faintWish.gui.InternalDisplay;
-import net.renkin42.faintWish.gui.MainFrame;
 
 public class MapReader {
 	
@@ -53,8 +54,8 @@ public class MapReader {
 	}
 	
 	public void initializeSectors(int map, Entity player, Entity android) {
-		player.sector = MainFrame.sector[this.playerInitialX[map]][this.playerInitialY[map]];
-		android.sector = MainFrame.sector[this.androidInitialX[map]][this.androidInitialY[map]];
+		player.sector = MainSystem.sector[this.playerInitialX[map]][this.playerInitialY[map]];
+		android.sector = MainSystem.sector[this.androidInitialX[map]][this.androidInitialY[map]];
 	}
 	
 	public void printMap(int map, InternalDisplay display) {
