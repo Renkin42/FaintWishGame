@@ -66,5 +66,11 @@ public class Sector {
 	public void printScene(InternalDisplay display) {
 		this.scenes.printMap(scene, display);
 	}
+	
+	public boolean isGoal() {
+		int arrayX = this.x * 2 + 1;
+		int arrayY = this.y * 2 + 1;
+		return this.maps.mapChars[this.map][arrayX][arrayY] == 'x';
+	}
 
 }

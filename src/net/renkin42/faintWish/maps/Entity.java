@@ -5,9 +5,8 @@ public class Entity {
 	public char marker;
 	public Sector sector;
 	
-	public Entity(char marker, Sector sector) {
+	public Entity(char marker) {
 		this.marker = marker;
-		this.sector = sector;
 	}
 
 }

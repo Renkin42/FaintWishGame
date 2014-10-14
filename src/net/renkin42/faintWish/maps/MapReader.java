@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import net.renkin42.faintWish.gui.InternalDisplay;
+import net.renkin42.faintWish.gui.MainFrame;
 
 public class MapReader {
 	
@@ -30,11 +31,11 @@ public class MapReader {
 					for (int k=0; k<19; k++) {
 						this.mapChars[i][j][k] = line[k];
 						if (line[k]=='p') {
-							playerInitialX[i] = j;
-							playerInitialY[i] = k;
+							playerInitialX[i] = (j-1)/2;
+							playerInitialY[i] = (k-1)/2;
 						} else if (line[k]=='A') {
-							androidInitialX[i] = j;
-							androidInitialY[i] = k;
+							androidInitialX[i] = (j-1)/2;
+							androidInitialY[i] = (k-1)/2;
 						}
 					}
 				}
@@ -49,6 +50,11 @@ public class MapReader {
 				}
 			}
 		}
+	}
+	
+	public void initializeSectors(int map, Entity player, Entity android) {
+		player.sector = MainFrame.sector[this.playerInitialX[map]][this.playerInitialY[map]];
+		android.sector = MainFrame.sector[this.androidInitialX[map]][this.androidInitialY[map]];
 	}
 	
 	public void printMap(int map, InternalDisplay display) {

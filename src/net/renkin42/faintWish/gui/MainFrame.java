@@ -4,15 +4,25 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import net.renkin42.faintWish.maps.Entity;
 import net.renkin42.faintWish.maps.MapReader;
+import net.renkin42.faintWish.maps.Sector;
 
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public static Sector[][] sector = new Sector[9][9];
+	public static MapReader maps;
+	public static MapReader scenes;
+	public static int map;
+	public static Entity player;
+	public static Entity android;
 	
 	public MainFrame() {
 		super("A Faint Wish");
@@ -23,6 +33,8 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void addComponents(Container pane) {
+		initializeVariables();
+		
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
@@ -40,8 +52,7 @@ public class MainFrame extends JFrame {
 		text.printc("\u2593\u2593\u2593\u2592\u2592\u2592\u2591\u2591\u2591\u2592\u2592\u2592\u2593\u2593\u2593", Color.BLUE);
 		pane.add(text, c);
 		
-		MapReader map = new MapReader("map", 1);
-		map.printMap(0, text);
+		maps.printMap(0, text);
 		
 		JButton button1 = new JButton("LEFT");
 		c.gridx = 1;
@@ -73,6 +84,24 @@ public class MainFrame extends JFrame {
 		c.gridheight = 1;
 		pane.add(button4, c);
 		
+	}
+	
+	private static void initializeVariables() {
+		maps = new MapReader("map", 1);
+		scenes = new MapReader("scene", 1);
+		
+		map = new Random().nextInt(maps.mapChars.length);
+		
+		player = new Entity('p');
+		android = new Entity('A');
+		
+		maps.initializeSectors(map, player, android);
+		
+		for (int i=0; i<9; i++) {
+			for (int j=0; j<9; j++) {
+				sector[i][j] = new Sector(map, i, j, maps, scenes);
+			}
+		}
 	}
 
 }
