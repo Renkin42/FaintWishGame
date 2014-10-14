@@ -2,8 +2,8 @@ package net.renkin42.faintWish.maps;
 
 import java.awt.Color;
 import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import net.renkin42.faintWish.ai.Entity;
 import net.renkin42.faintWish.ai.MainSystem;
@@ -19,11 +19,15 @@ public class MapReader {
 	
 	public MapReader(String mapName, int mapSize) {
 		this.mapChars = new char[mapSize][19][19];
+		this.playerInitialX = new int[mapSize];
+		this.playerInitialY = new int[mapSize];
+		this.androidInitialX = new int[mapSize];
+		this.androidInitialY = new int[mapSize];
 		
 		for (int i=0; i<mapSize; i++) {
 			try {
-				InputStream file = this.getClass().getResourceAsStream("/resources/text/"+mapName+"s/"+mapName+i+".txt");
-				BufferedReader mapTextFile = new BufferedReader(new InputStreamReader(file));
+				String file = this.getClass().getResource("/resources/text/"+mapName+"s/"+mapName+i+".txt").getPath();
+				BufferedReader mapTextFile = new BufferedReader(new FileReader(file));
 				
 				for (int j=0; j<19; j++) {
 					
@@ -42,7 +46,7 @@ public class MapReader {
 				}
 				
 				mapTextFile.close();
-			} catch (Exception e) {
+			} catch (IOException e) {
 				System.out.println("Unable to load "+mapName+" file "+i+". Generating blank map instead.");
 				for (int j=0; j<19; j++) {
 					for (int k=0; k<19; k++) {

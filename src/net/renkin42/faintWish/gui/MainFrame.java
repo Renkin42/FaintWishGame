@@ -43,8 +43,8 @@ public class MainFrame extends JFrame {
 		text.printc("\u2593\u2593\u2593\u2592\u2592\u2592\u2591\u2591\u2591\u2592\u2592\u2592\u2593\u2593\u2593", Color.BLUE);
 		pane.add(text, c);
 		
-		MapReader maps = new MapReader("map", 1);
-		maps.printMap(0, text);
+		MapReader test = new MapReader("test", 1);
+		test.printMap(0, text);
 		
 		JButton button1 = new JButton("LEFT");
 		c.gridx = 1;
