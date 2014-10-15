@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.renkin42.faintWish.ai.Entity;
 import net.renkin42.faintWish.ai.MainSystem;
-import net.renkin42.faintWish.gui.InternalDisplay;
 
 public class Sector {
 	
@@ -25,7 +24,7 @@ public class Sector {
 		this.scene = new Random().nextInt(this.scenes.mapChars.length);
 	}
 	
-	public void move(int direction, InternalDisplay display, Entity entity) throws InvalidMovementException {
+	public void move(int direction, Entity entity) throws InvalidMovementException {
 		int arrayX = this.x * 2 + 1;
 		int arrayY = this.y * 2 + 1;
 		switch (direction) {
@@ -66,11 +65,11 @@ public class Sector {
 			}
 			break;
 		}
-		this.maps.printMap(map, display);
+		this.maps.printMap(map);
 	}
 	
-	public void printScene(InternalDisplay display) {
-		this.scenes.printMap(scene, display);
+	public void printScene() {
+		this.scenes.printMap(scene);
 	}
 	
 	public boolean isGoal() {

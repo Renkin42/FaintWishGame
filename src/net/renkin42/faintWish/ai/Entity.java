@@ -1,6 +1,5 @@
 package net.renkin42.faintWish.ai;
 
-import net.renkin42.faintWish.gui.MainFrame;
 import net.renkin42.faintWish.maps.InvalidMovementException;
 import net.renkin42.faintWish.maps.Sector;
 
@@ -14,7 +13,7 @@ public class Entity {
 	}
 	
 	public void move(int direction) throws InvalidMovementException {
-		this.sector.move(direction, MainFrame.mapDisplay, this);
+		this.sector.move(direction, this);
 	}
 
 }

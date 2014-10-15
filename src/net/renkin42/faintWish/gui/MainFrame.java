@@ -1,20 +1,30 @@
 package net.renkin42.faintWish.gui;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
+import net.renkin42.faintWish.ai.MovementListener;
+import net.renkin42.faintWish.ai.StartListener;
 import net.renkin42.faintWish.maps.MapReader;
 
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
+	public static InternalDisplay mainDisplay;
 	public static InternalDisplay mapDisplay;
+	public static InternalDisplay consoleDisplay;
+	
+	public static JButton westButton;
+	public static JButton northButton;
+	public static JButton eastButton;
+	public static JButton southButton;
+	public static JButton startButton;
 	
 	public MainFrame() {
 		super("A Faint Wish");
@@ -29,52 +39,71 @@ public class MainFrame extends JFrame {
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		InternalDisplay text = new InternalDisplay(400,400);
+		mainDisplay = new InternalDisplay(275, 400);
+		mapDisplay = new InternalDisplay(100, 100);
+		consoleDisplay = new InternalDisplay(100, 50);
+		
 		c.gridx = 0;
 		c.gridy = 0;
 		c.gridwidth = 1;
-		c.gridheight = 4;
+		c.gridheight = 5;
 		c.fill = GridBagConstraints.BOTH;
-		text.println("Test Line 1");
-		text.println();
-		text.print("Test line 2. ");
-		text.printc("This text is red!", Color.RED);
-		text.println();
-		text.printc("\u2593\u2593\u2593\u2592\u2592\u2592\u2591\u2591\u2591\u2592\u2592\u2592\u2593\u2593\u2593", Color.BLUE);
-		pane.add(text, c);
+		pane.add(mainDisplay, c);
 		
-		MapReader test = new MapReader("test", 1);
-		test.printMap(0, text);
+		c.gridx = 1;
+		c.gridy = 3;
+		c.gridwidth = GridBagConstraints.REMAINDER;
+		c.gridheight = 1;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		pane.add(new JScrollPane(mapDisplay), c);
 		
-		JButton button1 = new JButton("LEFT");
+		c.gridx = 0;
+		c.gridy = 5;
+		pane.add(new JScrollPane(consoleDisplay), c);
+		
+		MapReader test = new MapReader("test", 1, mainDisplay);
+		test.printMap(0);
+		
+		westButton = new JButton("WEST");
+		northButton = new JButton("NORTH");
+		eastButton = new JButton("EAST");
+		southButton = new JButton("SOUTH");
+		startButton = new JButton("START");
+		
+		westButton.setEnabled(false);
+		northButton.setEnabled(false);
+		eastButton.setEnabled(false);
+		southButton.setEnabled(false);
+		
+		startButton.addActionListener(new StartListener());
+		northButton.addActionListener(new MovementListener(0));
+		eastButton.addActionListener(new MovementListener(1));
+		southButton.addActionListener(new MovementListener(2));
+		westButton.addActionListener(new MovementListener(3));
+		
 		c.gridx = 1;
 		c.gridy = 1;
 		c.gridwidth = 1;
 		c.gridheight = 1;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.NORTHWEST;
-		pane.add(button1, c);
+		pane.add(westButton, c);
 		
-		JButton button2 = new JButton("UP");
 		c.gridx = 2;
 		c.gridy = 0;
-		c.gridwidth = 1;
-		c.gridheight = 1;
-		pane.add(button2, c);
+		pane.add(northButton, c);
 		
-		JButton button3 = new JButton("RIGHT");
 		c.gridx = 3;
 		c.gridy = 1;
-		c.gridwidth = 1;
-		c.gridheight = 1;
-		pane.add(button3, c);
+		pane.add(eastButton, c);
 		
-		JButton button4 = new JButton("DOWN");
 		c.gridx = 2;
 		c.gridy = 2;
-		c.gridwidth = 1;
-		c.gridheight = 1;
-		pane.add(button4, c);
+		pane.add(southButton, c);
+		
+		c.gridx = 2;
+		c.gridy = 4;
+		pane.add(startButton, c);
 		
 	}
 
