@@ -31,6 +31,7 @@ public class MainSystem {
 		}
 		
 		maps.initializeSectors(map, player, android);
+		maps.printMap(map);
 	}
 
 }

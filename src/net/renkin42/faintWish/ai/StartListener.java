@@ -13,6 +13,9 @@ public class StartListener implements ActionListener {
 		MainFrame.northButton.setEnabled(true);
 		MainFrame.eastButton.setEnabled(true);
 		MainFrame.southButton.setEnabled(true);
+		MainFrame.startButton.setEnabled(false);
+		
+		new MainSystem();
 
 	}
 

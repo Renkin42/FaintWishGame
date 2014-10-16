@@ -51,10 +51,10 @@ public class MainFrame extends JFrame {
 		pane.add(mainDisplay, c);
 		
 		c.gridx = 1;
-		c.gridy = 3;
+		c.gridy = 4;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = 1;
-		c.fill = GridBagConstraints.HORIZONTAL;
+		c.fill = GridBagConstraints.BOTH;
 		pane.add(new JScrollPane(mapDisplay), c);
 		
 		c.gridx = 0;
@@ -76,10 +76,10 @@ public class MainFrame extends JFrame {
 		southButton.setEnabled(false);
 		
 		startButton.addActionListener(new StartListener());
-		northButton.addActionListener(new MovementListener(0));
-		eastButton.addActionListener(new MovementListener(1));
-		southButton.addActionListener(new MovementListener(2));
-		westButton.addActionListener(new MovementListener(3));
+		northButton.addActionListener(new MovementListener(3));
+		eastButton.addActionListener(new MovementListener(0));
+		southButton.addActionListener(new MovementListener(1));
+		westButton.addActionListener(new MovementListener(2));
 		
 		c.gridx = 1;
 		c.gridy = 1;
@@ -102,7 +102,7 @@ public class MainFrame extends JFrame {
 		pane.add(southButton, c);
 		
 		c.gridx = 2;
-		c.gridy = 4;
+		c.gridy = 3;
 		pane.add(startButton, c);
 		
 	}
