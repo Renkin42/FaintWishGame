@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
 		this.setVisible(true);
 		this.addComponents(this.getContentPane());
 		this.pack();
+		this.setResizable(false);
 	}
 	
 	private void addComponents(Container pane) {
@@ -39,9 +40,9 @@ public class MainFrame extends JFrame {
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		mainDisplay = new InternalDisplay(275, 400);
-		mapDisplay = new InternalDisplay(100, 100);
-		consoleDisplay = new InternalDisplay(100, 50);
+		mainDisplay = new InternalDisplay(275, 400, 16);
+		mapDisplay = new InternalDisplay(100, 100, 10);
+		consoleDisplay = new InternalDisplay(100, 200, 10);
 		
 		c.gridx = 0;
 		c.gridy = 0;
@@ -51,14 +52,18 @@ public class MainFrame extends JFrame {
 		pane.add(mainDisplay, c);
 		
 		c.gridx = 1;
-		c.gridy = 4;
+		c.gridy = 3;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = 1;
 		c.fill = GridBagConstraints.BOTH;
+		c.weighty = 1.0;
 		pane.add(new JScrollPane(mapDisplay), c);
 		
 		c.gridx = 0;
 		c.gridy = 5;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weighty = 0.0;
+		c.ipady = 50;
 		pane.add(new JScrollPane(consoleDisplay), c);
 		
 		MapReader test = new MapReader("test", 1, mainDisplay);
@@ -81,6 +86,7 @@ public class MainFrame extends JFrame {
 		southButton.addActionListener(new MovementListener(2));
 		westButton.addActionListener(new MovementListener(3));
 		
+		c.ipady = 0;
 		c.gridx = 1;
 		c.gridy = 1;
 		c.gridwidth = 1;
@@ -102,7 +108,7 @@ public class MainFrame extends JFrame {
 		pane.add(southButton, c);
 		
 		c.gridx = 2;
-		c.gridy = 3;
+		c.gridy = 4;
 		pane.add(startButton, c);
 		
 	}

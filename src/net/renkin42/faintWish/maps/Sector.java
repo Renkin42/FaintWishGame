@@ -39,7 +39,7 @@ public class Sector {
 				maps.mapChars[this.map][arrayY-2][arrayX]=entity.marker;
 				entity.sector = MainSystem.sector[this.x][this.y-1];
 			} else {
-				throw new InvalidMovementException(0);
+				throw new InvalidMovementException(MainSystem.NORTH);
 			}
 			break;
 		case MainSystem.EAST:
@@ -48,7 +48,7 @@ public class Sector {
 				maps.mapChars[this.map][arrayY][arrayX+2]=entity.marker;
 				entity.sector = MainSystem.sector[this.x+1][this.y];
 			} else {
-				throw new InvalidMovementException(1);
+				throw new InvalidMovementException(MainSystem.EAST);
 			}
 			break;
 		case MainSystem.SOUTH:
@@ -57,7 +57,7 @@ public class Sector {
 				maps.mapChars[this.map][arrayY+2][arrayX]=entity.marker;
 				entity.sector = MainSystem.sector[this.x][this.y+1];
 			} else {
-				throw new InvalidMovementException(2);
+				throw new InvalidMovementException(MainSystem.SOUTH);
 			}
 			break;
 		case MainSystem.WEST:
@@ -66,7 +66,7 @@ public class Sector {
 				maps.mapChars[this.map][arrayY][arrayX-2]=entity.marker;
 				entity.sector = MainSystem.sector[this.x-1][this.y];
 			} else {
-				throw new InvalidMovementException(3);
+				throw new InvalidMovementException(MainSystem.WEST);
 			}
 			break;
 		}

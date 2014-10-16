@@ -9,18 +9,21 @@ public class InternalDisplay extends JTextPane {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static final String START_TAGS = "<html><head><meta charset=\"UTF-8\" />"
-			+ "<style>body {color:white; background-color:black; font-family:monospace;"
-			+ "margin:0; padding:0;}</style></head><body><pre>";
-	private static final String END_TAGS = "</pre></body></html>";
+	private final String START_TAGS;
+	private final String END_TAGS;
 	private String content;
 	
-	public InternalDisplay(int width, int height) {
+	public InternalDisplay(int width, int height, int fontSize) {
 		super();
+		
+		START_TAGS = "<html><head><meta charset=\"UTF-8\" />"
+				+ "<style>body {color:white; background-color:black; font-family:monospace;"
+				+ "font-size:"+fontSize+"px; margin:0; padding:0;}</style></head><body><pre>";
+		END_TAGS = "</pre></body></html>";
 		this.content = "";
 		this.setText(START_TAGS+content+END_TAGS);
 		this.setContentType("text/html");
-		this.setPreferredSize(new Dimension(width, height));
+		this.setSize(new Dimension(width, height));
 	}
 	
 	/**
