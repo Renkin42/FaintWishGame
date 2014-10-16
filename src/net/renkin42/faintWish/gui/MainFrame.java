@@ -76,10 +76,10 @@ public class MainFrame extends JFrame {
 		southButton.setEnabled(false);
 		
 		startButton.addActionListener(new StartListener());
-		northButton.addActionListener(new MovementListener(3));
-		eastButton.addActionListener(new MovementListener(0));
-		southButton.addActionListener(new MovementListener(1));
-		westButton.addActionListener(new MovementListener(2));
+		northButton.addActionListener(new MovementListener(0));
+		eastButton.addActionListener(new MovementListener(1));
+		southButton.addActionListener(new MovementListener(2));
+		westButton.addActionListener(new MovementListener(3));
 		
 		c.gridx = 1;
 		c.gridy = 1;

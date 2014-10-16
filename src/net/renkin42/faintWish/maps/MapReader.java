@@ -37,11 +37,11 @@ public class MapReader {
 					for (int k=0; k<19; k++) {
 						this.mapChars[i][j][k] = line[k];
 						if (line[k]=='p') {
-							playerInitialX[i] = (j-1)/2;
-							playerInitialY[i] = (k-1)/2;
+							playerInitialX[i] = (k-1)/2;
+							playerInitialY[i] = (j-1)/2;
 						} else if (line[k]=='A') {
-							androidInitialX[i] = (j-1)/2;
-							androidInitialY[i] = (k-1)/2;
+							androidInitialX[i] = (k-1)/2;
+							androidInitialY[i] = (j-1)/2;
 						}
 					}
 				}

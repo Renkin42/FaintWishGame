@@ -8,6 +8,11 @@ import net.renkin42.faintWish.maps.Sector;
 
 public class MainSystem {
 	
+	public static final int NORTH = 0;
+	public static final int EAST = 1;
+	public static final int SOUTH = 2;
+	public static final int WEST = 3;
+	
 	public static Sector[][] sector = new Sector[9][9];
 	public static MapReader maps;
 	public static MapReader scenes;
