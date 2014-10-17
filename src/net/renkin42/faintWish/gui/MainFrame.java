@@ -40,7 +40,7 @@ public class MainFrame extends JFrame {
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		mainDisplay = new InternalDisplay(275, 400, 16);
+		mainDisplay = new InternalDisplay(275, 400, 14);
 		mapDisplay = new InternalDisplay(100, 100, 10);
 		consoleDisplay = new InternalDisplay(100, 200, 10);
 		

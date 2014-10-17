@@ -21,7 +21,7 @@ public class MainSystem {
 	public static Entity android;
 	
 	public MainSystem() {
-		maps = new MapReader("map", 1, MainFrame.mapDisplay);
+		maps = new MapReader("map", 3, MainFrame.mapDisplay);
 		scenes = new MapReader("scene", 1, MainFrame.mainDisplay);
 		
 		map = new Random().nextInt(maps.mapChars.length);
