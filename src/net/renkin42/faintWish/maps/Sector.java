@@ -20,7 +20,7 @@ public class Sector {
 		this.y = y;
 		this.arrayX = this.x * 2 + 1;
 		this.arrayY = this.y * 2 + 1;
-		this.isGoal = (MainSystem.maps.mapChars[this.map][this.arrayY][arrayX]=='x');
+		this.isGoal = (MainSystem.maps.mapChars[this.map][arrayX][this.arrayY]=='x');
 		this.maps = maps;
 		this.scenes = scenes;
 	}

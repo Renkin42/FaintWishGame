@@ -1,0 +1,19 @@
+rrrrrrrw   wrrrrrrr
+rrrrrrrw   wrrrrrrr
+rrrrrrrw   wrrrrrrr
+rrryyrrw   wrryyrrr
+ryyyyrrw   wrryyyyr
+yyyyyrrw   wrryyyyy
+yyyyyrrw   wrryyyyy
+yyyrrrKkKkKkKrrrryy
+yrrrrrKKkKkKKrrrrry
+rrrrrrKkKkKkKrrrrrr
+rrrrrrKKkKkKKrrrrrr
+rrrrrrKkKkKkKrrrrrr
+rrrrrrKKkKkKKrrrrrr
+rrrrrwKkKkKkKwrrrgg
+rrrrw         wGGGG
+rrrw           wggg
+rrw             ggg
+rw              ggg
+w                 w
