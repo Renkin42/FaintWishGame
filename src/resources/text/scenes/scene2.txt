@@ -1,0 +1,19 @@
+rrrrrrw     wrrrrrr
+rrrrrrw     wrrrrrr
+rrrrrrw     wrrrrrr
+rrrrrrw     wrCCCrr
+rrrrrKw     wrWCWCC
+rrrKK K     wrWCWCW
+rrK kkK     wrWWWCW
+rrKkkKw     wrCCCCW
+rrrKKkK     wrrrrCC
+rrKkkkK     wrrrrrr
+rrKkkkK     wrrrrrr
+rrKkkkw     wrrrrrr
+rrrkkk   y   wrrrrr
+rrrkkKkk      wrrrr
+rrrkK   kk     wrrr
+rrwKkk   y      wrr
+rw    kk         wr
+w        y        w
+         y         

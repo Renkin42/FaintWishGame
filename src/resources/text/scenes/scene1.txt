@@ -1,16 +1,16 @@
 rrrrrrrrrrrwrrrrrrr
 rrrrrrrrrrrwrrrrrrr
-rrrrrrrrrrrwrrrrrrr
-rrrrrrrrrrrwrrrrrrr
-rrrrrrrrrrrwrrrrrrr
-rrrrrrrrrrrwrwwrrrr
-rrrrrrrrrrrwrwcwrrr
-rrrrrrrrrrrwrwccwwr
-rrrrrrrrrrrwrwcccwr
-rrrrrrrrrrrwrwcccwr
-rrrrrrrrrrrwrwcccwr
-wwwwwwwwwwwwrwcccwr
-            wwcccwr
+rrrrrrrrrrrwrrmbmbm
+rrrrrrrrrrrwrmbmbmb
+rrrrrrrrrrrwmbmbmbm
+rrrrrrrrrrrmbmbmbmr
+rrrgggggrrmbmbmbmkk
+rrrgggggrrrwrwccwwr
+rrrG   Grrrwrwcccwr
+rrG R R Grrwrwcccwr
+rrGGGGGGGrrwrwcccwr
+wwGGGGGGGwwwrwcccwr
+  GGGGGGG   wwcccwr
              wcccwr
               cccwr
                ccwr
