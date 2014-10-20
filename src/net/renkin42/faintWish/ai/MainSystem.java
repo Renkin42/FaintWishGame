@@ -22,7 +22,7 @@ public class MainSystem {
 	
 	public MainSystem() {
 		maps = new MapReader("map", 3, MainFrame.mapDisplay);
-		scenes = new MapReader("scene", 3, MainFrame.mainDisplay);
+		scenes = new MapReader("scene", 6, MainFrame.mainDisplay);
 		
 		map = new Random().nextInt(maps.mapChars.length);
 		
@@ -37,7 +37,7 @@ public class MainSystem {
 		
 		maps.initializeSectors(map, player, android);
 		maps.printMap(map);
-		scenes.printMap(2);
+		scenes.printMap(5);
 	}
 
 }
