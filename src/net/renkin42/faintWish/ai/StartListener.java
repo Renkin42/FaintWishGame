@@ -6,16 +6,35 @@ import java.awt.event.ActionListener;
 import net.renkin42.faintWish.gui.MainFrame;
 
 public class StartListener implements ActionListener {
+	
+	private boolean ready;
+	
+	public StartListener() {
+		super();
+		ready = false;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		MainFrame.westButton.setEnabled(true);
-		MainFrame.northButton.setEnabled(true);
-		MainFrame.eastButton.setEnabled(true);
-		MainFrame.southButton.setEnabled(true);
-		MainFrame.startButton.setEnabled(false);
+		if (!ready) {
+			MainFrame.mainDisplay.clear();
+			MainFrame.mapDisplay.clear();
+			MainFrame.consoleDisplay.clear();
+			
+			MainSystem.introDialogue();
+			
+			ready = true;
+		} else {
+			MainFrame.startButton.setEnabled(false);
+			MainFrame.westButton.setEnabled(true);
+			MainFrame.northButton.setEnabled(true);
+			MainFrame.eastButton.setEnabled(true);
+			MainFrame.southButton.setEnabled(true);
 		
-		new MainSystem();
+			new MainSystem();
+			
+			ready = false;
+		}
 
 	}
 
