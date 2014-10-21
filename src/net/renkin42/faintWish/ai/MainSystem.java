@@ -26,7 +26,7 @@ public class MainSystem {
 		
 		map = new Random().nextInt(maps.mapChars.length);
 		
-		player = new Entity('p');
+		player = new Entity('^');
 		android = new Entity('A');
 		
 		for (int i=0; i<9; i++) {
@@ -37,7 +37,7 @@ public class MainSystem {
 		
 		maps.initializeSectors(map, player, android);
 		maps.printMap(map);
-		scenes.printMap(7);
+		player.printScene();
 	}
 
 }

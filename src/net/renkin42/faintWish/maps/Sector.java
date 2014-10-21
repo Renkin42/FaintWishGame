@@ -31,6 +31,7 @@ public class Sector {
 		switch (direction) {
 		case MainSystem.NORTH:
 			if (maps.mapChars[this.map][arrayY-1][arrayX]==' ') {
+				if (entity==MainSystem.player) {entity.marker = '^';}
 				maps.mapChars[this.map][arrayY][arrayX]=' ';
 				maps.mapChars[this.map][arrayY-2][arrayX]=entity.marker;
 				entity.sector = MainSystem.sector[this.x][this.y-1];
@@ -41,6 +42,7 @@ public class Sector {
 			break;
 		case MainSystem.EAST:
 			if (maps.mapChars[this.map][arrayY][arrayX+1]==' ') {
+				if (entity==MainSystem.player) {entity.marker = '>';}
 				maps.mapChars[this.map][arrayY][arrayX]=' ';
 				maps.mapChars[this.map][arrayY][arrayX+2]=entity.marker;
 				entity.sector = MainSystem.sector[this.x+1][this.y];
@@ -51,6 +53,7 @@ public class Sector {
 			break;
 		case MainSystem.SOUTH:
 			if (maps.mapChars[this.map][arrayY+1][arrayX]==' ') {
+				if (entity==MainSystem.player) {entity.marker = 'v';}
 				maps.mapChars[this.map][arrayY][arrayX]=' ';
 				maps.mapChars[this.map][arrayY+2][arrayX]=entity.marker;
 				entity.sector = MainSystem.sector[this.x][this.y+1];
@@ -61,6 +64,7 @@ public class Sector {
 			break;
 		case MainSystem.WEST:
 			if (maps.mapChars[this.map][arrayY][arrayX-1]==' ') {
+				if (entity==MainSystem.player) {entity.marker = '<';}
 				maps.mapChars[this.map][arrayY][arrayX]=' ';
 				maps.mapChars[this.map][arrayY][arrayX-2]=entity.marker;
 				entity.sector = MainSystem.sector[this.x-1][this.y];

@@ -41,7 +41,7 @@ public class MainFrame extends JFrame {
 		GridBagConstraints c = new GridBagConstraints();
 		
 		mainDisplay = new InternalDisplay(275, 400, 14);
-		mapDisplay = new InternalDisplay(100, 100, 10);
+		mapDisplay = new InternalDisplay(100, 100, 8);
 		consoleDisplay = new InternalDisplay(100, 200, 10);
 		
 		c.gridx = 0;
@@ -56,23 +56,23 @@ public class MainFrame extends JFrame {
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = 1;
 		c.fill = GridBagConstraints.BOTH;
-		c.weighty = 1.0;
+		c.weighty = 0.75;
 		pane.add(new JScrollPane(mapDisplay), c);
 		
 		c.gridx = 0;
 		c.gridy = 5;
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weighty = 0.0;
+		c.weighty = 0.25;
 		c.ipady = 50;
 		pane.add(new JScrollPane(consoleDisplay), c);
 		
 		MapReader test = new MapReader("test", 1, mainDisplay);
 		test.printMap(0);
 		
-		westButton = new JButton("WEST");
-		northButton = new JButton("NORTH");
-		eastButton = new JButton("EAST");
-		southButton = new JButton("SOUTH");
+		westButton = new JButton("LEFT");
+		northButton = new JButton("FORWARD");
+		eastButton = new JButton("RIGHT");
+		southButton = new JButton("BACK");
 		startButton = new JButton("START");
 		
 		westButton.setEnabled(false);
@@ -81,10 +81,10 @@ public class MainFrame extends JFrame {
 		southButton.setEnabled(false);
 		
 		startButton.addActionListener(new StartListener());
-		northButton.addActionListener(new MovementListener(0));
-		eastButton.addActionListener(new MovementListener(1));
-		southButton.addActionListener(new MovementListener(2));
-		westButton.addActionListener(new MovementListener(3));
+		northButton.addActionListener(new MovementListener(MovementListener.FORWARD));
+		eastButton.addActionListener(new MovementListener(MovementListener.RIGHT));
+		southButton.addActionListener(new MovementListener(MovementListener.BACK));
+		westButton.addActionListener(new MovementListener(MovementListener.LEFT));
 		
 		c.ipady = 0;
 		c.gridx = 1;

@@ -36,7 +36,7 @@ public class MapReader {
 					
 					for (int k=0; k<19; k++) {
 						this.mapChars[i][j][k] = line[k];
-						if (line[k]=='p') {
+						if (line[k]=='^') {
 							playerInitialX[i] = (k-1)/2;
 							playerInitialY[i] = (j-1)/2;
 						} else if (line[k]=='A') {
@@ -98,7 +98,10 @@ public class MapReader {
 				case 'a': output.append("\u254B"); break; //4-way intersection
 				case 'A': output.appendc("\u2620", Color.RED); break;
 				case 'x': output.appendc("\u2613", Color.YELLOW); break;
-				case 'p': output.appendc("\u265B", Color.BLUE); break;
+				case '^': output.appendc("\u21C8", Color.BLUE); break;
+				case '>': output.appendc("\u21C9", Color.BLUE); break;
+				case 'v': output.appendc("\u21CA", Color.BLUE); break;
+				case '<': output.appendc("\u21C7", Color.BLUE); break;
 				case ' ': output.appendc("\u2593", Color.BLACK); break;
 				default: output.append(Character.toString(mapChars[map][i][j]));
 				}
