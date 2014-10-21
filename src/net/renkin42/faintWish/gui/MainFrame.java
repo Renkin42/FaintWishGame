@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+import net.renkin42.faintWish.ai.MainSystem;
 import net.renkin42.faintWish.ai.MovementListener;
 import net.renkin42.faintWish.ai.StartListener;
 import net.renkin42.faintWish.maps.MapReader;
@@ -56,13 +57,13 @@ public class MainFrame extends JFrame {
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		c.gridheight = 1;
 		c.fill = GridBagConstraints.BOTH;
-		c.weighty = 0.75;
+		c.weighty = 1.00;
 		pane.add(new JScrollPane(mapDisplay), c);
 		
 		c.gridx = 0;
 		c.gridy = 5;
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weighty = 0.25;
+		c.weighty = 0.0;
 		c.ipady = 50;
 		pane.add(new JScrollPane(consoleDisplay), c);
 		
@@ -110,6 +111,11 @@ public class MainFrame extends JFrame {
 		c.gridx = 2;
 		c.gridy = 4;
 		pane.add(startButton, c);
+		
+		mainDisplay.clear();
+		mapDisplay.clear();
+		consoleDisplay.clear();
+		MainSystem.menus.printMap(0);
 		
 	}
 

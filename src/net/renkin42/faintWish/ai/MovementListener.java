@@ -71,17 +71,28 @@ public class MovementListener implements ActionListener {
 			MainFrame.consoleDisplay.println("Sorry, that path is blocked. Please try a different direction.");
 		}
 		
-		boolean successful = false;
-		
-		do {
-			int androidDirection = new Random().nextInt(4);
-			try {
-				MainSystem.android.move(androidDirection);
-				successful = true;
-			} catch (InvalidMovementException ime) {
-				successful = false;
+		if (player.sector == android.sector) {
+			MainSystem.getCaught();
+		} else if (player.sector.isGoal) {
+			MainSystem.reachGoal();
+		} else {
+			boolean successful = false;
+			
+			do {
+				int androidDirection = new Random().nextInt(4);
+				try {
+					android.move(androidDirection);
+					successful = true;
+				} catch (InvalidMovementException ime) {
+					successful = false;
+				}
+			} while (!successful);
+			
+			if(player.sector == android.sector) {
+				MainSystem.getCaught();
 			}
-		} while (!successful);
+			
+		}
 
 	}
 
