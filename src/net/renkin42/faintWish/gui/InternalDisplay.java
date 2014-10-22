@@ -24,6 +24,7 @@ public class InternalDisplay extends JTextPane {
 		this.setText(START_TAGS+content+END_TAGS);
 		this.setContentType("text/html");
 		this.setSize(new Dimension(width, height));
+		this.setEditable(false);
 	}
 	
 	/**

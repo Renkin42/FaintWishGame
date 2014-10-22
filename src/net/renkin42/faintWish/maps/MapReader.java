@@ -2,7 +2,8 @@ package net.renkin42.faintWish.maps;
 
 import java.awt.Color;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import net.renkin42.faintWish.ai.Entity;
 import net.renkin42.faintWish.ai.MainSystem;
@@ -27,8 +28,8 @@ public class MapReader {
 		
 		for (int i=0; i<mapSize; i++) {
 			try {
-				String file = this.getClass().getResource("/resources/text/"+mapName+"s/"+mapName+i+".txt").getPath();
-				BufferedReader mapTextFile = new BufferedReader(new FileReader(file));
+				InputStream file = this.getClass().getResourceAsStream("/resources/text/"+mapName+"s/"+mapName+i+".txt");
+				BufferedReader mapTextFile = new BufferedReader(new InputStreamReader(file));
 				
 				for (int j=0; j<19; j++) {
 					

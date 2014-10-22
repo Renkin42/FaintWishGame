@@ -20,13 +20,15 @@ public class MainSystem {
 	public static MapReader scenes = new MapReader("scene", 8, MainFrame.mainDisplay);
 	public static MapReader menus = new MapReader("menu", 4, MainFrame.mainDisplay);
 	public static int map;
+	public static int turn;
 	public static Entity player;
 	public static Entity android;
 	
 	public MainSystem() {
-		maps = new MapReader("map", 3, MainFrame.mapDisplay);
+		maps = new MapReader("map", 4, MainFrame.mapDisplay);
 		
 		map = new Random().nextInt(maps.mapChars.length);
+		turn = 0;
 		
 		player = new Entity('^');
 		android = new Entity('A');
@@ -86,6 +88,38 @@ public class MainSystem {
 		consoleDisplay.printc("Press 'START' to continue.", Color.YELLOW);
 		consoleDisplay.println();
 		startButton.setEnabled(true);
+	}
+	
+	public static void getTurnMessage() {
+		switch (turn) {
+		case 0: consoleDisplay.appendc("In a town enveloped by darkness", Color.BLUE); break;
+		case 1: consoleDisplay.appendc("The light from the moon no longer reaches us.", Color.BLUE); break;
+		case 2: consoleDisplay.appendc("We will no longer be able to return,", Color.BLUE); break;
+		case 3: consoleDisplay.appendc("so choose wisely the path humanity will take.", Color.BLUE); break;
+		case 4: consoleDisplay.appendc("Humans in the flesh no longer exist.", Color.BLUE); break;
+		case 5: consoleDisplay.appendc("A world where pain is lost.", Color.BLUE); break;
+		case 6: consoleDisplay.appendc("The price for this program that doesn't", Color.BLUE); break;
+		case 7: consoleDisplay.appendc("understand pain covers the entire world.", Color.BLUE); break;
+		case 8: consoleDisplay.appendc("A body with no blood or tears...", Color.BLUE); break;
+		case 9: consoleDisplay.appendc("A soul that doesn't feel any pain...", Color.BLUE); break;
+		case 10: consoleDisplay.appendc("The threat to the 'New Humanity'...", Color.BLUE); break;
+		case 11: consoleDisplay.appendc("The remains of the old humanity", Color.BLUE); break;
+		case 12: consoleDisplay.appendc("Their task was to, yes...", Color.BLUE); break;
+		case 13: consoleDisplay.appendc("connect their DNA to the future.", Color.BLUE); break;
+		case 14: consoleDisplay.appendc("Where did things go wrong?", Color.BLUE); break;
+		case 15: consoleDisplay.appendc("The war...still won't end.", Color.BLUE); break;
+		case 16: consoleDisplay.appendc("Those words still ring in my ears,", Color.BLUE); break;
+		case 17: consoleDisplay.appendc("'You guys...must live on...'", Color.BLUE); break;
+		case 18: consoleDisplay.appendc("In this city that watches a never-ending dream,", Color.BLUE); break;
+		case 19: consoleDisplay.appendc("You could no longer hear any heartbeats.", Color.BLUE); break;
+		case 20: consoleDisplay.appendc("Just so you have no regrets,", Color.BLUE); break;
+		case 21: consoleDisplay.appendc("Watch over, as humanity holds their will.", Color.BLUE); break;
+		}
+		if (turn<=21) {
+			consoleDisplay.println();
+		}
+		turn++;
+		
 	}
 
 }

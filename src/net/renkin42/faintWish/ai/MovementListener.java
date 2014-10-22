@@ -90,6 +90,8 @@ public class MovementListener implements ActionListener {
 			
 			if(player.sector == android.sector) {
 				MainSystem.getCaught();
+			} else {
+				MainSystem.getTurnMessage();
 			}
 			
 		}
